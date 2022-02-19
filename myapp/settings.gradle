@@ -1,0 +1,27 @@
+pluginManagement {
+  repositories {
+    gradlePluginPortal()
+    google()
+    mavenCentral()
+  }
+}
+/*
+dependencyResolutionManagement {
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+    google()
+    mavenCentral()
+  }
+}
+
+ */
+rootProject.name = "My App"
+include ':app'
+
+//上面的是新建工程时生成的内容，下面的是需要添加的内容
+
+setBinding(new Binding([gradle: this]))
+evaluate(new File(
+    settingsDir.absoluteFile,
+    '../my_mod/.android/include_flutter.groovy' //本工程到flutter module下.android/include_flutter.groovy的相对路径
+))
